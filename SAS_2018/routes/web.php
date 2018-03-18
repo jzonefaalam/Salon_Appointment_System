@@ -17,8 +17,25 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('/pages/dashboard/index');
-});
+})->name('dashboard');
 
+Route::get('/reservation', function () {
+    return view('/pages/reservation/index');
+})->name('reservation');
+
+Route::prefix('maintenance')->group(function () {
+
+    Route::get('/staff', function () {
+        return view('/pages/maintenance/staff/index');
+    })->name('staff');
+
+    Route::get('/service', 'ServiceController@viewAll')->name('service');
+
+    Route::get('/package', function () {
+        return view('/pages/maintenance/packages/index');
+    })->name('package');
+
+});
 
 /*
 |--------------------------------------------------------------------------

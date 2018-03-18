@@ -11,7 +11,13 @@
     <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
             @include('/pages/layout/include_header')
-            @include('/pages/layout/include_sidebar')
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    @yield('content-sidebar')
+                </section>
+            </aside>
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
@@ -28,4 +34,6 @@
         </div>
         <!-- ./wrapper -->
     </body>
+    @include('/pages/layout/include_js')
+    @yield('content-script')
 </html>

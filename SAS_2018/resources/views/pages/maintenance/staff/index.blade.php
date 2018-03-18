@@ -1,7 +1,7 @@
 @extends('pages/layout/layout')
 @section('content-sidebar')
     <ul class="sidebar-menu" data-widget="tree">
-        <li class="active">
+        <li class="">
             <a href="{{ route('dashboard') }}">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     <span class="pull-right-container">
@@ -9,7 +9,7 @@
                 </span>
             </a>
         </li>
-        <li class=" }}">
+        <li class="">
             <a href="{{ route('reservation') }}">
                 <i class="fa fa-dashboard"></i> <span>Reservations</span>
                 <span class="pull-right-container">
@@ -17,7 +17,7 @@
                 </span>
             </a>
         </li>
-        <li class="treeview">
+        <li class="treeview active">
             <a href="#">
                 <i class="fa fa-pie-chart"></i>
                 <span>Maintenance</span>
@@ -27,7 +27,7 @@
             </a>
             <ul class="treeview-menu">
                 <li class="">
-                    <a href="{{ route('staff') }}"><i class="fa fa-circle-o"></i> Staff</a>
+                    <a href="{{ route('staff') }}"><i class="fa fa-circle"></i> Staff</a>
                 </li>
                 <li class="">
                     <a href="{{ route('service') }}"><i class="fa fa-circle-o"></i> Service</a>
@@ -49,10 +49,10 @@
 @endsection
 @section('content-header')
     <h1>
-        Dashboard
+        Staff
     </h1>
     <ol class="breadcrumb">
-        <li class="active">Dashboard</li>
+        <li class="active">Staff</li>
     </ol>
 @endsection
 @section('content')
