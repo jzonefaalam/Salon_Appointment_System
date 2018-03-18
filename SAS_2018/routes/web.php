@@ -12,5 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/pages/login/index');
+})->name('login');
+
+Route::get('/dashboard', function () {
+    return view('/pages/dashboard/index');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| API
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('API')->group(function () {
+    Route::post('/authenticate', 'AuthController@login')->name('auth');
 });
