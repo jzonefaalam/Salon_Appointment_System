@@ -45,4 +45,21 @@ Route::prefix('maintenance')->group(function () {
 
 Route::prefix('API')->group(function () {
     Route::post('/authenticate', 'AuthController@login')->name('auth');
+    Route::prefix('maintenance')->group(function () {
+        Route::get('/staff', function () {
+            return view('/pages/maintenance/staff/index');
+        })->name('staff');
+        Route::get('/package', function () {
+            return view('/pages/maintenance/packages/index');
+        })->name('package');
+
+        //Service Functionalities
+        Route::post('/addNewService', 'ServiceController@addNewService');
+        Route::post('/deleteService', 'ServiceController@deleteService');
+
+        //Service Type Functionalities
+        Route::post('/addNewServiceType', 'ServiceController@addNewServiceType');
+        Route::post('/deleteServiceType', 'ServiceController@deleteServiceType');
+        Route::get('/getSingleServiceType', 'ServiceController@getSingleServiceType');
+    });
 });

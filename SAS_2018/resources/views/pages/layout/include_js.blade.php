@@ -38,3 +38,4 @@
 <script src="/ADMINLTE/dist/js/pages/dashboard.js"></script>
 <!-- /ADMINLTE for demo purposes -->
 <script src="/ADMINLTE/dist/js/demo.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>

@@ -23,9 +23,45 @@ class ServiceController extends Controller
     }
 
     public function viewAll() {
-        $service = $this->service->getAll( Auth::user()->user_id );
+        $service = $this->service->getAllServices();
+        $serviceType = $this->service->getAllServiceTypes();
         return view('/pages/maintenance/services/index')
-            ->with('serviceData', $service);
+            ->with('service', $service)
+            ->with('serviceType', $serviceType);
     }
+
+    public function addNewServiceType() {
+        $serviceName = $_POST['inputServiceName'];
+        $this->service->createServiceType( $serviceName );
+        return redirect()->back();
+    }
+
+    public function addNewService() {
+        $serviceName = $_POST['inputServiceName'];
+        $serviceDesc = $_POST['inputServiceDesc'];
+        $serviceType = $_POST['inputServiceType'];
+        $serviceFee = $_POST['inputServiceFee'];
+        $this->service->createService( $serviceName, $serviceDesc, $serviceType, $serviceFee );
+        return redirect()->back();
+    }
+
+    public function deleteService() {
+        $serviceID = $_POST['inputServiceID'];
+        $this->service->deleteService( $serviceID );
+        return redirect()->back();
+    }
+
+    public function deleteServiceType() {
+        $serviceTypeID = $_POST['inputServiceTypeID'];
+        $this->service->deleteServiceType( $serviceTypeID );
+        return redirect()->back();
+    }
+
+    public function getSingleServiceType(Request $req) {
+        $serviceTypeID = $req->only('serviceTypeID');
+        $serviceTypeData = $this->service->getSingleServiceType( $serviceTypeID );
+        return \Response::json(['serviceTypeData'=>$serviceTypeData]);
+    }
+
 
 }
