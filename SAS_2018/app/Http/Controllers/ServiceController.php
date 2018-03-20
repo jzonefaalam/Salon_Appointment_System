@@ -63,5 +63,28 @@ class ServiceController extends Controller
         return \Response::json(['serviceTypeData'=>$serviceTypeData]);
     }
 
+    public function editServiceType() {
+        $serviceTypeID = $_POST['inputServiceTypeIDEdit'];
+        $serviceTypeName = $_POST['inputServiceTypeNameEdit'];
+        $this->service->editServiceType( $serviceTypeID, $serviceTypeName);
+        return redirect()->back();
+    }
+
+    public function getSingleService(Request $req) {
+        $serviceID = $req->only('serviceID');
+        $serviceData = $this->service->getSingleService( $serviceID );
+        return \Response::json(['serviceData'=>$serviceData]);
+    }
+
+    public function editService() {
+        $serviceID = $_POST['inputServiceIDEdit'];
+        $serviceName = $_POST['inputServiceNameEdit'];
+        $serviceDesc = $_POST['inputServiceDescEdit'];
+        $serviceFee = $_POST['inputServiceFeeEdit'];
+        $serviceType = $_POST['inputServiceTypeEdit'];
+        $this->service->editService( $serviceID, $serviceName, $serviceDesc, $serviceFee, $serviceType);
+        return redirect()->back();
+    }
+
 
 }

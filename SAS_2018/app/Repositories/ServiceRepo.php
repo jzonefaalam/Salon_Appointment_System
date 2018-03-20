@@ -66,4 +66,30 @@ class ServiceRepo {
             ->get();
     }
 
+    public function editServiceType( $servicetype_id, $servicetype_name ) {
+        return DB::table('tbl_servicetype')
+            ->where('servicetype_id', $servicetype_id)
+            ->update([
+              'servicetype_name' => $servicetype_name,
+            ]);
+    }
+
+    public function getSingleService( $service_id ) {
+        return DB::table('tbl_service')
+            ->select('*')
+            ->where('service_id', $service_id)
+            ->get();
+    }
+
+    public function editService( $service_id, $service_name, $service_desc, $service_fee, $service_type) {
+        return DB::table('tbl_service')
+            ->where('service_id', $service_id)
+            ->update([
+                'service_name' => $service_name,
+                'service_desc' => $service_desc,
+                'service_price' => $service_fee,
+                'servicetype_id' => $service_type,
+            ]);
+    }
+
 }

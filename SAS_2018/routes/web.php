@@ -61,5 +61,8 @@ Route::prefix('API')->group(function () {
         Route::post('/addNewServiceType', 'ServiceController@addNewServiceType');
         Route::post('/deleteServiceType', 'ServiceController@deleteServiceType');
         Route::get('/getSingleServiceType', 'ServiceController@getSingleServiceType');
+        Route::post('/editServiceType', 'ServiceController@editServiceType');
+        Route::get('/getSingleService', 'ServiceController@getSingleService');
+        Route::post('/editService', 'ServiceController@editService');
     });
 });

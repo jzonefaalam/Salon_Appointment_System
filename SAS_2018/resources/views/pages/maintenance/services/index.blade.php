@@ -104,7 +104,7 @@
                                                 <td>{{ $serviceData->service_price }}</td>
                                                 <td>{{ $serviceData->status }}</td>
                                                 <td>
-                                                    <a class="btn" id="deleteServiceBtn();">
+                                                    <a class="btn" onclick="editService(this.name)" name="{{ $serviceData->service_id }}">
                                                         <i class="fa fa-pencil-square-o"></i>
                                                     </a>
                                                     <a class="btn" onclick="deleteService(this.name)" name="{{ $serviceData->service_id }}">
@@ -217,9 +217,34 @@
 				},
 				success: function ( data ) {
                     for( var i=0 ; i<data['serviceTypeData'].length; ++i ){
-						$('#inputServiceTypeNameEdit').val(data['serviceTypeData'][i]['servicetype_name']);
+                        document.getElementById("inputServiceTypeIDEdit").value = data['serviceTypeData'][i]['servicetype_id'];
+                        document.getElementById("inputServiceTypeNameEdit").value = data['serviceTypeData'][i]['servicetype_name'];
 					}
                     $('#edit-service-type-modal').modal('show');
+				},
+				error: function (xhr, desc, err) {
+					console.log(xhr);
+					console.log(desc);
+					console.log(err);
+					}
+				});
+        };
+
+        function editService( id ){
+            $.ajax({
+				type: "GET",
+				url: '/API/maintenance/getSingleService',
+				data: {
+					'serviceID' : id
+				},
+				success: function ( data ) {
+                    for( var i=0 ; i<data['serviceData'].length; ++i ){
+                        document.getElementById("inputServiceIDEdit").value = data['serviceData'][i]['service_id'];
+                        document.getElementById("inputServiceNameEdit").value = data['serviceData'][i]['service_name'];
+                        document.getElementById("inputServiceDescEdit").value = data['serviceData'][i]['service_desc'];
+                        document.getElementById("inputServiceFeeEdit").value = data['serviceData'][i]['service_price'];
+					}
+                    $('#edit-service-modal').modal('show');
 				},
 				error: function (xhr, desc, err) {
 					console.log(xhr);
