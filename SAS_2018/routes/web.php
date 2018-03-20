@@ -25,11 +25,8 @@ Route::get('/reservation', function () {
 
 Route::prefix('maintenance')->group(function () {
 
-    Route::get('/staff', function () {
-        return view('/pages/maintenance/staff/index');
-    })->name('staff');
-
     Route::get('/service', 'ServiceController@viewAll')->name('service');
+    Route::get('/staff', 'StaffController@viewAll')->name('staff');
 
     Route::get('/package', function () {
         return view('/pages/maintenance/packages/index');
@@ -46,9 +43,6 @@ Route::prefix('maintenance')->group(function () {
 Route::prefix('API')->group(function () {
     Route::post('/authenticate', 'AuthController@login')->name('auth');
     Route::prefix('maintenance')->group(function () {
-        Route::get('/staff', function () {
-            return view('/pages/maintenance/staff/index');
-        })->name('staff');
         Route::get('/package', function () {
             return view('/pages/maintenance/packages/index');
         })->name('package');
@@ -56,13 +50,13 @@ Route::prefix('API')->group(function () {
         //Service Functionalities
         Route::post('/addNewService', 'ServiceController@addNewService');
         Route::post('/deleteService', 'ServiceController@deleteService');
+        Route::get('/getSingleService', 'ServiceController@getSingleService');
+        Route::post('/editService', 'ServiceController@editService');
 
         //Service Type Functionalities
         Route::post('/addNewServiceType', 'ServiceController@addNewServiceType');
         Route::post('/deleteServiceType', 'ServiceController@deleteServiceType');
         Route::get('/getSingleServiceType', 'ServiceController@getSingleServiceType');
         Route::post('/editServiceType', 'ServiceController@editServiceType');
-        Route::get('/getSingleService', 'ServiceController@getSingleService');
-        Route::post('/editService', 'ServiceController@editService');
     });
 });

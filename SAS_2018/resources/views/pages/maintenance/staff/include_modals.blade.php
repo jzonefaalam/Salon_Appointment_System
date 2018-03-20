@@ -1,40 +1,9 @@
 <!-- Note: seperate modals in a seperate file. -->
-<div class="modal fade" tabindex="-1" role="dialog" id="new-service-type-modal">
+<div class="modal fade" tabindex="-1" role="dialog" id="new-staff-modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-              <h4 id="titleModal" class="modal-title" style="text-align: center">New Service Type</h4>
-            </div>
-            <form action="/API/maintenance/addNewServiceType" method="POST">
-                {{ csrf_field() }}
-                <div class="modal-body">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Service Type Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="inputServiceName" placeholder="Enter Service Type Name...">
-                            </div>
-                        </div><br>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn">
-                        <i class="fa fa-check"></i> Submit
-                    </button>
-                    <button class="btn" data-dismiss="modal">
-                        <i class="fa fa-times"></i> Close
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" tabindex="-1" role="dialog" id="new-service-modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-              <h4 id="titleModal" class="modal-title" style="text-align: center">Delete Service</h4>
+              <h4 id="titleModal" class="modal-title" style="text-align: center">New Staff</h4>
             </div>
             <form action="/API/maintenance/addNewService" method="POST">
                 {{ csrf_field() }}
