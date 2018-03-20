@@ -23,6 +23,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 <!-- DataTables -->
 <link rel="stylesheet" href="/ADMINLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+<!-- Select2 -->
+<link rel="stylesheet" href="/ADMINLTE/bower_components/select2/dist/css/select2.min.css">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>

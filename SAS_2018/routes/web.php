@@ -24,14 +24,9 @@ Route::get('/reservation', function () {
 })->name('reservation');
 
 Route::prefix('maintenance')->group(function () {
-
     Route::get('/service', 'ServiceController@viewAll')->name('service');
     Route::get('/staff', 'StaffController@viewAll')->name('staff');
-
-    Route::get('/package', function () {
-        return view('/pages/maintenance/packages/index');
-    })->name('package');
-
+    Route::get('/package', 'PackageController@viewAll')->name('package');
 });
 
 /*
@@ -43,10 +38,6 @@ Route::prefix('maintenance')->group(function () {
 Route::prefix('API')->group(function () {
     Route::post('/authenticate', 'AuthController@login')->name('auth');
     Route::prefix('maintenance')->group(function () {
-        Route::get('/package', function () {
-            return view('/pages/maintenance/packages/index');
-        })->name('package');
-
         //Service Functionalities
         Route::post('/addNewService', 'ServiceController@addNewService');
         Route::post('/deleteService', 'ServiceController@deleteService');
@@ -58,5 +49,17 @@ Route::prefix('API')->group(function () {
         Route::post('/deleteServiceType', 'ServiceController@deleteServiceType');
         Route::get('/getSingleServiceType', 'ServiceController@getSingleServiceType');
         Route::post('/editServiceType', 'ServiceController@editServiceType');
+
+        //Staff Functionalities
+        Route::post('/addNewStaff', 'StaffController@addNewStaff');
+        Route::post('/deleteStaff', 'StaffController@deleteStaff');
+        Route::get('/getSingleStaff', 'StaffController@getSingleStaff');
+        Route::post('/editStaff', 'StaffController@editStaff');
+
+        //Package Functionalities
+        Route::post('/addNewPackage', 'PackageController@addNewPackage');
+        // Route::post('/deleteStaff', 'StaffController@deleteStaff');
+        // Route::get('/getSingleStaff', 'StaffController@getSingleStaff');
+        // Route::post('/editStaff', 'StaffController@editStaff');
     });
 });
