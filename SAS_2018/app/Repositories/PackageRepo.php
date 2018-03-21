@@ -22,57 +22,81 @@ class PackageRepo {
             ->get();
     }
 
-    public function createStaff( $packageName, $packageDesc, $packagePrice, $packageInclusion ) {
-        // PackageModel::insert([
-        //     'package_name' => $packageName,
-        //     'package_description' => $packageDesc,
-        //     'package_price' => $packagePrice,
-        //     'status' => 1
-        // ]);
-        //
-        // $latestID = DB::table('tbl_packages')
-        // ->orderBy('package_id','desc')
-        // ->first()
-        // ->id;
-        //
-        // if( $packageInclusion != "null"){
-        //     foreach( $packageInclusion as $services ) {
-        //         DB::table('tbl_packageinclusions')
-        //             ->insert([
-        //                 'package_id' => $latestID,
-        //                 'service_id' => $services
-        //             ]);
-        //     }
-        // }
+
+    public function getAllInclusions( ) {
+        return DB::table('tbl_packageinclusions')
+            ->select('*')
+            ->where('status', 1)
+            ->get();
     }
-    //
-    // public function deleteStaff( $staff_id ) {
-    //     return DB::table('tbl_staff')
-    //         ->where('staff_id', $staff_id)
-    //         ->update([
-    //           'status' => 0,
-    //         ]);
-    // }
-    //
-    // public function getSingleStaff( $staff_id ) {
-    //     return DB::table('tbl_staff')
-    //         ->select('*')
-    //         ->where('staff_id', $staff_id)
-    //         ->get();
-    // }
-    //
-    // public function editStaff( $staffID, $staffFName, $staffLName, $staffMName, $staffDesc ,$staffBDate, $staffGender ) {
-    //     return DB::table('tbl_staff')
-    //         ->where('staff_id', $staffID)
-    //         ->update([
-    //             'staff_firstname' => $staffFName,
-    //             'staff_middlename' => $staffMName,
-    //             'staff_lastname' => $staffLName,
-    //             'staff_description' => $staffDesc,
-    //             'staff_gender' => $staffGender,
-    //             'staff_birthdate' => date("Y-m-d", strtotime($staffBDate)),
-    //             'status' => 1
-    //         ]);
-    // }
+
+    public function createPackage( $packageName, $packageDesc, $packagePrice, $packageInclusion ) {
+        PackageModel::insert([
+            'package_name' => $packageName,
+            'package_description' => $packageDesc,
+            'package_price' => $packagePrice,
+            'status' => 1
+        ]);
+
+        $lastPackageID = DB::table('tbl_packages')
+        ->max('package_id');
+
+        if( $packageInclusion != "null"){
+            foreach( $packageInclusion as $services ) {
+                DB::table('tbl_packageinclusions')
+                    ->insert([
+                        'package_id' => $lastPackageID,
+                        'service_id' => $services,
+                        'status' => 1
+                    ]);
+            }
+        }
+    }
+
+    public function deletePackage( $package_id ) {
+        return DB::table('tbl_packages')
+            ->where('package_id', $package_id)
+            ->update([
+              'status' => 0,
+            ]);
+    }
+
+    public function getSinglePackage( $package_id ) {
+        return DB::table('tbl_packages')
+            ->select('*')
+            ->where('package_id', $package_id)
+            ->get();
+    }
+
+    public function editPackage( $packageID, $packageName, $packageDesc, $packagePrice, $packageInclusion ) {
+        DB::table('tbl_packages')
+            ->where('package_id', $packageID)
+            ->update([
+                'package_name' => $packageName,
+                'package_description' => $packageDesc,
+                'package_price' => $packagePrice,
+            ]);
+
+        if( $packageInclusion != "null"){
+            foreach( $packageInclusion as $services ) {
+                DB::table('tbl_packageinclusions')
+                    ->where('package_id', $packageID)
+                    ->update([
+                        'status' => 0
+                    ]);
+            }
+        }
+
+        if( $packageInclusion != "null"){
+            foreach( $packageInclusion as $services ) {
+                DB::table('tbl_packageinclusions')
+                    ->insert([
+                        'package_id' => $packageID,
+                        'service_id' => $services,
+                        'status' => 1
+                    ]);
+            }
+        }
+    }
 
 }

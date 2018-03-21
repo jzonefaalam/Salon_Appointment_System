@@ -25,8 +25,10 @@ class PackageController extends Controller
     public function viewAll() {
         $package = $this->package->getAllPackages();
         $service = $this->package->getAllServices();
+        $inclusions = $this->package->getAllInclusions();
         return view('/pages/maintenance/packages/index')
             ->with('package', $package)
+            ->with('inclusions', $inclusions)
             ->with('service', $service);
     }
 
@@ -38,29 +40,27 @@ class PackageController extends Controller
         $this->package->createPackage( $packageName, $packageDesc, $packagePrice, $packageInclusion );
         return redirect()->back();
     }
-    //
-    // public function deleteStaff() {
-    //     $staffID = $_POST['inputStaffID'];
-    //     $this->staff->deleteStaff( $staffID );
-    //     return redirect()->back();
-    // }
-    //
-    // public function getSingleStaff(Request $req) {
-    //     $staffID = $req->only('staffID');
-    //     $staffData = $this->staff->getSingleStaff( $staffID );
-    //     return \Response::json(['staffData'=>$staffData]);
-    // }
-    //
-    // public function editStaff() {
-    //     $staffID = $_POST['inputStaffIDEdit'];
-    //     $staffFName = $_POST['inputStaffFNameEdit'];
-    //     $staffLName = $_POST['inputStaffLNameEdit'];
-    //     $staffMName = $_POST['inputStaffMnameEdit'];
-    //     $staffDesc = $_POST['inputStaffDescEdit'];
-    //     $staffBDate = $_POST['inputStaffBDateEdit'];
-    //     $staffGender = $_POST['inputStaffGenderEdit'];
-    //     $this->staff->editStaff( $staffID, $staffFName, $staffLName, $staffMName, $staffDesc ,$staffBDate, $staffGender );
-    //     return redirect()->back();
-    // }
+
+    public function deletePackage() {
+        $packageID = $_POST['inputPackageID'];
+        $this->package->deletePackage( $packageID );
+        return redirect()->back();
+    }
+
+    public function getSinglePackage(Request $req) {
+        $packageID = $req->only('packageID');
+        $packageData = $this->package->getSinglePackage( $packageID );
+        return \Response::json(['packageData'=>$packageData]);
+    }
+
+    public function editPackage() {
+        $packageID = $_POST['inputPackageIDEdit'];
+        $packageName = $_POST['inputPackageNameEdit'];
+        $packageDesc = $_POST['inputPackageDescEdit'];
+        $packagePrice = $_POST['inputPackagePriceEdit'];
+        $packageInclusion = $_POST['inputPackageInclusionEdit'];
+        $this->package->editPackage( $packageID, $packageName, $packageDesc, $packagePrice, $packageInclusion );
+        return redirect()->back();
+    }
 
 }

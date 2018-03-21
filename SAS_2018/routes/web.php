@@ -58,8 +58,8 @@ Route::prefix('API')->group(function () {
 
         //Package Functionalities
         Route::post('/addNewPackage', 'PackageController@addNewPackage');
-        // Route::post('/deleteStaff', 'StaffController@deleteStaff');
-        // Route::get('/getSingleStaff', 'StaffController@getSingleStaff');
-        // Route::post('/editStaff', 'StaffController@editStaff');
+        Route::post('/deletePackage', 'PackageController@deletePackage');
+        Route::get('/getSinglePackage', 'PackageController@getSinglePackage');
+        Route::post('/editPackage', 'PackageController@editPackage');
     });
 });
