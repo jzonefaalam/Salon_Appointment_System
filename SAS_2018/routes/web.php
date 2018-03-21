@@ -23,6 +23,10 @@ Route::get('/reservation', function () {
     return view('/pages/reservation/index');
 })->name('reservation');
 
+Route::get('/home', function () {
+    return view('/pages/user/index');
+})->name('home');
+
 Route::prefix('maintenance')->group(function () {
     Route::get('/service', 'ServiceController@viewAll')->name('service');
     Route::get('/staff', 'StaffController@viewAll')->name('staff');
