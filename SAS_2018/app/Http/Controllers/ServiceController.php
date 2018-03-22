@@ -9,10 +9,6 @@ use App\Models\ServiceModel;
 use App\Repositories\ServiceRepo;
 use Illuminate\Support\Facades\Auth;
 
-/**
-*   Author: Shiela Mae Pornea
-*/
-
 class ServiceController extends Controller
 {
 
@@ -36,12 +32,17 @@ class ServiceController extends Controller
         return redirect()->back();
     }
 
-    public function addNewService() {
+    public function addNewService(Request $req) {
         $serviceName = $_POST['inputServiceName'];
         $serviceDesc = $_POST['inputServiceDesc'];
         $serviceType = $_POST['inputServiceType'];
         $serviceFee = $_POST['inputServiceFee'];
-        $this->service->createService( $serviceName, $serviceDesc, $serviceType, $serviceFee );
+        $serviceImage = ($_FILES["inputServiceImage"]["name"]);
+        $target_dir = "images\\";
+        $target_file = $target_dir . basename($_FILES["inputServiceImage"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES["inputServiceImage"]["tmp_name"], $target_file);
+        $this->service->createService( $serviceName, $serviceDesc, $serviceType, $serviceFee, $serviceImage);
         return redirect()->back();
     }
 

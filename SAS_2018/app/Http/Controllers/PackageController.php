@@ -9,10 +9,6 @@ use App\Models\PackageModel;
 use App\Repositories\PackageRepo;
 use Illuminate\Support\Facades\Auth;
 
-/**
-*   Author: Shiela Mae Pornea
-*/
-
 class PackageController extends Controller
 {
 

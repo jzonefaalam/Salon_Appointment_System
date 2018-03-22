@@ -9,10 +9,6 @@ use App\Models\StaffModel;
 use App\Repositories\StaffRepo;
 use Illuminate\Support\Facades\Auth;
 
-/**
-*   Author: Shiela Mae Pornea
-*/
-
 class StaffController extends Controller
 {
 

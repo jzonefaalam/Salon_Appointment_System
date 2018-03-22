@@ -1,14 +1,14 @@
 @extends('pages/layout/layout')
 @section('content-sidebar')
     <ul class="sidebar-menu" data-widget="tree">
-        <li class="">
+        <!-- <li class="">
             <a href="{{ route('dashboard') }}">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     <span class="pull-right-container">
                 <i class="pull-right"></i>
                 </span>
             </a>
-        </li>
+        </li> -->
         <li class="">
             <a href="{{ route('reservation') }}">
                 <i class="fa fa-dashboard"></i> <span>Reservations</span>
@@ -85,6 +85,7 @@
                                 <table id="service_tbl" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Service Image</th>
                                                 <th>Service ID</th>
                                                 <th>Service Name</th>
                                                 <th>Service Description</th>
@@ -97,6 +98,7 @@
                                         <tbody>
                                             @foreach($service as $serviceData)
                                             <tr>
+                                                <td><img src="{{ asset('images/' . $serviceData->service_image) }}"  style="width:150px;height:100px;" /></td>
                                                 <td>{{ $serviceData->service_id }}</td>
                                                 <td>{{ $serviceData->service_name }}</td>
                                                 <td>{{ $serviceData->service_desc }}</td>

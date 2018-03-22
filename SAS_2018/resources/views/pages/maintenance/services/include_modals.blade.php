@@ -34,9 +34,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-              <h4 id="titleModal" class="modal-title" style="text-align: center">Delete Service</h4>
+              <h4 id="titleModal" class="modal-title" style="text-align: center">New Service</h4>
             </div>
-            <form action="/API/maintenance/addNewService" method="POST">
+            <form action="/API/maintenance/addNewService" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="box-body">
@@ -68,6 +68,14 @@
                                 <input type="number" min="0" class="form-control" name="inputServiceFee" placeholder="Enter Service Fee...">
                             </div>
                         </div><br><br>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Service Image</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" name="inputServiceImage" id="inputServiceImage">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">

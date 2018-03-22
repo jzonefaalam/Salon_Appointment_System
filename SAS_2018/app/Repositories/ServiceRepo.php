@@ -31,13 +31,14 @@ class ServiceRepo {
         );
     }
 
-    public function createService( $service_name, $service_desc, $service_type, $service_fee ) {
+    public function createService( $service_name, $service_desc, $service_type, $service_fee, $service_image ) {
         return response()->json(
             ServiceModel::insert([
                 'service_name' => $service_name,
                 'service_desc' => $service_desc,
                 'service_price' => $service_fee,
                 'servicetype_id' => $service_type,
+                'service_image' => $service_image,
                 'status' => 1
             ])
         );
