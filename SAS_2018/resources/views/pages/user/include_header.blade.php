@@ -7,6 +7,12 @@
 
 <!-- Bootstrap core CSS -->
 <link href="/USERTEMP/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Date Picker -->
+<link rel="stylesheet" href="/ADMINLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+<!-- Bootstrap time Picker -->
+<link rel="stylesheet" href="/ADMINLTE/plugins/timepicker/bootstrap-timepicker.min.css">
+<!-- Select2 -->
+<link rel="stylesheet" href="/ADMINLTE/bower_components/select2/dist/css/select2.min.css">
 
 <!-- Custom fonts for this template -->
 <link href="/USERTEMP/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

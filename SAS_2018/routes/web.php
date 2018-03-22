@@ -23,9 +23,8 @@ Route::get('/reservation', function () {
     return view('/pages/reservation/index');
 })->name('reservation');
 
-Route::get('/home', function () {
-    return view('/pages/user/index');
-})->name('home');
+
+Route::get('/home', 'UserController@getData')->name('home');
 
 Route::prefix('maintenance')->group(function () {
     Route::get('/service', 'ServiceController@viewAll')->name('service');
@@ -41,6 +40,7 @@ Route::prefix('maintenance')->group(function () {
 
 Route::prefix('API')->group(function () {
     Route::post('/authenticate', 'AuthController@login')->name('auth');
+    Route::post('/setAppointment', 'UserController@setAppointment');
     Route::prefix('maintenance')->group(function () {
         //Service Functionalities
         Route::post('/addNewService', 'ServiceController@addNewService');
