@@ -5,7 +5,7 @@
             <div class="modal-header">
               <h4 id="titleModal" class="modal-title" style="text-align: center">New Staff</h4>
             </div>
-            <form action="/API/maintenance/addNewStaff" method="POST">
+            <form action="/API/maintenance/addNewStaff" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="box-body">
@@ -53,6 +53,14 @@
                                 <input type="text" class="form-control" name="inputStaffBDate" id="inputStaffBDate" placeholder="Enter Birth Date...">
                             </div>
                         </div><br><br>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Staff Image</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" name="inputStaffImage" id="inputStaffImage">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">

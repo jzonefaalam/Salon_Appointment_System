@@ -75,6 +75,7 @@
             <table id="package_tbl" class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Package Image</th>
                     <th>Package ID</th>
                     <th>Package Name</th>
                     <th>Package Description</th>
@@ -88,6 +89,7 @@
 
                 @foreach($package as $packageData)
                 <tr>
+                    <td><img src="{{ asset('images/' . $packageData->package_image) }}"  style="width:150px;height:100px;" /></td>
                     <td>{{ $packageData->package_id }}</td>
                     <td>{{ $packageData->package_name }}</td>
                     <td>{{ $packageData->package_description }}</td>

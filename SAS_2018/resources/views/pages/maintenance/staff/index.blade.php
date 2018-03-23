@@ -75,6 +75,7 @@
             <table id="staff_tbl" class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Staff Image</th>
                     <th>Staff ID</th>
                     <th>Staff Name</th>
                     <th>Staff Description</th>
@@ -87,6 +88,7 @@
             <tbody>
                 @foreach($staff as $staffData)
                 <tr>
+                    <td><img src="{{ asset('images/' . $staffData->staff_image) }}"  style="width:150px;height:100px;" /></td>
                     <td>{{ $staffData->staff_id }}</td>
                     <td>{{ $staffData->staff_firstname }} {{ $staffData->staff_middlename }}  {{ $staffData->staff_lastname }}</td>
                     <td>{{ $staffData->staff_description }}</td>

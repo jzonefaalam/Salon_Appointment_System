@@ -30,11 +30,12 @@ class PackageRepo {
             ->get();
     }
 
-    public function createPackage( $packageName, $packageDesc, $packagePrice, $packageInclusion ) {
+    public function createPackage( $packageName, $packageDesc, $packagePrice, $packageInclusion, $packageImage ) {
         PackageModel::insert([
             'package_name' => $packageName,
             'package_description' => $packageDesc,
             'package_price' => $packagePrice,
+            'package_image' => $packageImage,
             'status' => 1
         ]);
 
@@ -51,6 +52,10 @@ class PackageRepo {
                     ]);
             }
         }
+        $target_dir = "images\\";
+        $target_file = $target_dir . basename($_FILES["inputPackageImage"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES["inputPackageImage"]["tmp_name"], $target_file);
     }
 
     public function deletePackage( $package_id ) {

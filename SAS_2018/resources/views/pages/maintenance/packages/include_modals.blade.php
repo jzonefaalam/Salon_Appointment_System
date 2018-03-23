@@ -5,7 +5,7 @@
             <div class="modal-header">
               <h4 id="titleModal" class="modal-title" style="text-align: center">New Package</h4>
             </div>
-            <form action="/API/maintenance/addNewPackage" method="POST">
+            <form action="/API/maintenance/addNewPackage" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-body" style="width: 100%;">
                     <div class="box-body">
@@ -40,6 +40,13 @@
 								</select>
 							</div>
                         </div><br><br>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Package Image</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" name="inputPackageImage" id="inputPackageImage">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -13,19 +13,22 @@ class StaffRepo {
             ->get();
     }
 
-    public function createStaff( $staffFName, $staffLName, $staffMName, $staffDesc ,$staffBDate, $staffGender ) {
+    public function createStaff( $staffFName, $staffLName, $staffMName, $staffDesc ,$staffBDate, $staffGender, $staffImage ) {
+        StaffModel::insert([
+            'staff_firstname' => $staffFName,
+            'staff_middlename' => $staffMName,
+            'staff_lastname' => $staffLName,
+            'staff_description' => $staffDesc,
+            'staff_gender' => $staffGender,
+            'staff_birthdate' => date("Y-m-d", strtotime($staffBDate)),
+            'staff_image' => $staffImage,
+            'status' => 1
+        ]);
+        $target_dir = "images\\";
+        $target_file = $target_dir . basename($_FILES["inputStaffImage"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES["inputStaffImage"]["tmp_name"], $target_file);
 
-        return response()->json(
-            StaffModel::insert([
-                'staff_firstname' => $staffFName,
-                'staff_middlename' => $staffMName,
-                'staff_lastname' => $staffLName,
-                'staff_description' => $staffDesc,
-                'staff_gender' => $staffGender,
-                'staff_birthdate' => date("Y-m-d", strtotime($staffBDate)),
-                'status' => 1
-            ])
-        );
     }
 
     public function deleteStaff( $staff_id ) {
