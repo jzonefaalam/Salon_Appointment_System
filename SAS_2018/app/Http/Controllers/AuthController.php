@@ -17,7 +17,7 @@ class AuthController extends Controller
     	$hashed = $req->password;
     	if ( $user->password == $hashed ) {
     		Auth::login($user);
-    		return redirect()->route('dashboard');
+    		return redirect()->route('reservation');
     	} else {
     		$req->session()->flash("login_error", "Wrong username or password");
     		return redirect()->route('login');
