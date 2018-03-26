@@ -16,7 +16,7 @@
                         <h4>{{ $viewPackage->package_name }}</h4>
                         <p class="text-muted">{{ $viewPackage->package_description }}</p>
                         <p class="text-muted">Package inclusions</p>
-                        <p class="text-muted">Package price</p>
+                        <p class="text-muted">₱ {{ number_format($viewPackage->package_price, 2) }}</p>
                     </div>
                 </div>
             @endforeach

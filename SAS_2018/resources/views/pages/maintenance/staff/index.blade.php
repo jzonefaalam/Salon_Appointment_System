@@ -2,14 +2,6 @@
 @section('content-sidebar')
     <ul class="sidebar-menu" data-widget="tree">
         <li class="">
-            <a href="{{ route('dashboard') }}">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                    <span class="pull-right-container">
-                <i class="pull-right"></i>
-                </span>
-            </a>
-        </li>
-        <li class="">
             <a href="{{ route('reservation') }}">
                 <i class="fa fa-dashboard"></i> <span>Reservations</span>
                 <span class="pull-right-container">
@@ -39,7 +31,7 @@
         </li>
         <li class="treeview">
             <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Utilities</span>
+                <i class="fa fa-dashboard"></i> <span>Reports</span>
                 <span class="pull-right-container">
                 <i class="pull-right"></i>
                 </span>
