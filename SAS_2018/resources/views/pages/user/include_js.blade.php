@@ -29,7 +29,7 @@
 
 <script>
     function validateMyForm(){
-        var aTime = document.getElementById('inputTime').value;
+        var aTime = document.getElementById('inputTimeDisplay').value;
         var array1 = aTime.split("");
         var newTime;
         if(array1.length == 7){

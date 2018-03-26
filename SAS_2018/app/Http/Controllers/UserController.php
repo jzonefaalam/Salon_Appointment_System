@@ -29,16 +29,16 @@ class UserController extends Controller
             ->with('service', $service);
     }
 
-    public function setAppointment(Request $req) {
-        $appCustomerName = $req->only('inputName');
-        $appTime = $req->only('inputTime');
-        $appDate = $req->only('inputDate');
-        $appCustomerNum = $req->only('inputContactNum');
-        $appCustomerEmail = $req->only('inputEmail');
-        $appServices = $req->only('inputServices');
-        $appPackages = $req->only('inputPackages');
-        $appStaff = $req->only('inputStaff');
-        $appMessage = $req->only('inputMessage');
+    public function setAppointment() {
+        $appCustomerName = $_POST['inputName'];
+        $appTime = $_POST['inputTime'];
+        $appDate = $_POST['inputDate'];
+        $appCustomerNum = $_POST['inputContactNum'];
+        $appCustomerEmail = $_POST['inputEmail'];
+        $appServices = $_POST['inputServices'];
+        $appPackages = $_POST['inputPackages'];
+        $appStaff = $_POST['inputStaff'];
+        $appMessage = $_POST['inputMessage'];
         $this->user->createAppointment( $appCustomerName, $appTime, $appDate, $appCustomerNum, $appCustomerEmail, $appServices, $appPackages, $appStaff, $appMessage );
         return redirect()->back();
     }
