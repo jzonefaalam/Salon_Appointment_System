@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form action="/API/setAppointment" method="POST">
+                <form id="ismForm" onsubmit="return validateMyForm();" action="/API/setAppointment" method="POST">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-12">
@@ -70,7 +70,7 @@
                         <div class="clearfix"></div>
                         <div class="col-lg-12 text-center">
                             <div id="success"></div>
-                            <button onclick="submitBtn();" class="btn btn-primary btn-xl text-uppercase" type="submit">Set Appointment</button>
+                            <button class="btn btn-primary btn-xl text-uppercase" id="submitBtn" type="submit">Set Appointment</button>
                         </div>
                     </div>
                 </form>
@@ -78,3 +78,16 @@
         </div>
     </div>
 </section>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="new-package-modal" style="width: 100%;">
+    <div class="modal-dialog" style="width: 50%;">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h4 id="titleModal" class="modal-title" style="text-align: center">New Package</h4>
+            </div>
+            <input hidden type="text" name="sendBool" id="sendBool" value="true">
+            <button class="btn btn-primary btn-xl text-uppercase" onclick="superSubmit();" id="superSubmit" type="submit">confirm</button>
+        </div>
+    </div>
+</div>

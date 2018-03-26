@@ -28,7 +28,7 @@
 </script>
 
 <script>
-    function submitBtn(){
+    function validateMyForm(){
         var aTime = document.getElementById('inputTime').value;
         var array1 = aTime.split("");
         var newTime;
@@ -67,5 +67,12 @@
             }
         }
         document.getElementById('inputTime').value = newTime;
+        $('#new-package-modal').modal('show');
+        return false;
     }
+
+    function superSubmit(){
+        document.getElementById("ismForm").submit();
+    }
+
 </script>
