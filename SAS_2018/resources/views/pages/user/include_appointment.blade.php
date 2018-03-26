@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form action="/API/setAppointment" method="POST">
+                <form id="appointment-form">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-12">
@@ -40,7 +40,8 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control timepicker" id="inputTime" name="inputTime" placeholder="Appointment Time">
+                                <input class="form-control" id="inputTime" name="inputTime" type="text" hidden placeholder="Your Phone" required>
+                                <input type="text" class="form-control timepicker" id="inputTimeDisplay" name="inputTimeDisplay" placeholder="Appointment Time">
                             </div>
                             <div class="form-group">
                                 <select name="inputServices[]" required style="width: 100%;" data-placeholder="Select Service(s)" id="inputServices[]" class="form-control select2" multiple="multiple">
@@ -70,7 +71,7 @@
                         <div class="clearfix"></div>
                         <div class="col-lg-12 text-center">
                             <div id="success"></div>
-                            <button onclick="submitBtn();" class="btn btn-primary btn-xl text-uppercase" type="submit">Set Appointment</button>
+                            <button onclick="submitBtn();" class="btn btn-primary btn-xl text-uppercase" type="button">Set Appointment</button>
                         </div>
                     </div>
                 </form>

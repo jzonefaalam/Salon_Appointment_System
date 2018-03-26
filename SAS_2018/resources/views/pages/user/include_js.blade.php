@@ -29,7 +29,7 @@
 
 <script>
     function submitBtn(){
-        var aTime = document.getElementById('inputTime').value;
+        var aTime = document.getElementById('inputTimeDisplay').value;
         var array1 = aTime.split("");
         var newTime;
         if(array1.length == 7){
@@ -66,6 +66,39 @@
                 newTime = h + ":" + m + ":00";
             }
         }
-        document.getElementById('inputTime').value = newTime;
+        var inputTime = newTime;
+        var inputName = document.getElementById('inputName').value;
+        var inputDate = document.getElementById('inputDate').value;
+        var inputEmail = document.getElementById('inputEmail').value;
+        var inputMessage = document.getElementById('inputMessage').value;
+        var inputStaff = $('#inputStaff').val();
+        var inputServices = $('#inputServices').val();
+        var inputPackages = $('#inputPackages').val();
+        var inputContactNum = document.getElementById('inputContactNum').value;
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url:'/API/setAppointment',
+            type:'POST',
+            data: {
+                'inputTime' : inputTime,
+                'inputName' : inputName,
+                'inputDate' : inputDate,
+                'inputEmail' : inputEmail,
+                'inputMessage' : inputMessage,
+                'inputStaff' : inputStaff,
+                'inputServices' : inputServices,
+                'inputPackages' : inputPackages,
+                'inputContactNum' : inputContactNum,
+            },
+            success: function(result){
+                alert('Successfully Added!');
+                window.location.href = '/home'
+            },
+            error: function(result){
+                console.log(result)
+            }
+        });
     }
 </script>
