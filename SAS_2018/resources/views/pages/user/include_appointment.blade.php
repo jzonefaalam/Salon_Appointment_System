@@ -85,10 +85,15 @@
     <div class="modal-dialog" style="width: 50%;">
         <div class="modal-content">
             <div class="modal-header">
-              <h4 id="titleModal" class="modal-title" style="text-align: center">New Package</h4>
+                <h4 id="titleModal" class="modal-title" style="text-align: center">Confirmation</h4>
             </div>
-            <input hidden type="text" name="sendBool" id="sendBool" value="true">
-            <button class="btn btn-primary btn-xl text-uppercase" onclick="superSubmit();" id="superSubmit" type="submit">confirm</button>
+            <div class="modal-body">
+                <p>Thank you for choosing us! We are pleased to inform you that your appointment has been accepted.</p>
+                <p>Please expect a phone call within the day.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary text-uppercase" onclick="superSubmit();" id="superSubmit" type="submit">confirm</button>
+            </div>
         </div>
     </div>
 </div>
