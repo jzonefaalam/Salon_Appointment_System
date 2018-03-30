@@ -8,14 +8,15 @@
         </div>
         <div class="row text-center">
             @foreach($service as $viewService)
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <img src="{{ asset('images/' . $viewService->service_image) }}"  style="width:150px;height:100px; border-radius: 10%;" />
-                    </span>
-                        <h4 class="service-heading">{{ $viewService->service_name }}</h4>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <img class="img-fluid" src="{{ asset('images/' . $viewService->service_image) }}" alt="">
+                    <div class="portfolio-caption">
+                        <h4>{{ $viewService->service_name }}</h4>
                         <p class="text-muted">{{ $viewService->service_desc }}</p>
+                    </div>
                 </div>
             @endforeach
+
         </div>
     </div>
 </section>

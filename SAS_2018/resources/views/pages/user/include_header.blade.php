@@ -23,3 +23,4 @@
 
 <!-- Custom styles for this template -->
 <link href="/USERTEMP/css/agency.min.css" rel="stylesheet">
+<link href="/USERTEMP/css/full-slider.css" rel="stylesheet">

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <style>
+        /* #masthead{
+            background-image: url('/images/bg1.jpg');
+        } */
+    </style>
     <head>
         @include('/pages/user/include_header')
     </head>
 
-    <body id="page-top">
+    <body id="page-top" >
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -13,15 +17,7 @@
         </nav>
 
         <!-- Header -->
-        <header class="masthead">
-          <div class="container">
-            <div class="intro-text">
-              <div class="intro-lead-in"></div>
-              <div class="intro-heading text-uppercase">Something about the Salon</div>
-              <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#appointment">Set an Appointment</a>
-            </div>
-          </div>
-        </header>
+        @include('/pages/user/include_masthead')
 
         <!-- Services -->
         @include('/pages/user/include_services')

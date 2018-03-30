@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             @foreach($package as $viewPackage)
-                <div class="col-md-6 portfolio-item">
+                <div class="col-md-4 col-sm-6 portfolio-item">
                     <div class="portfolio-hover">
                         <img src="{{ asset('images/' . $viewPackage->package_image) }}"  style="width:300px;height:200px; border-radius: 10%;" />
                     </div>
