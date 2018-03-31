@@ -3,7 +3,7 @@
         <div class="intro-text">
             <div class="container">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" role="listbox" style="height: 450px;">
+                    <div class="carousel-inner" role="listbox" style="height: 450px; border-radius: 10px;">
                         <div class="carousel-item active" style="background-image: url('/images/carousel_1.jpg')">
                         </div>
                         <div class="carousel-item" style="background-image: url('/images/carousel_2.jpg')">
