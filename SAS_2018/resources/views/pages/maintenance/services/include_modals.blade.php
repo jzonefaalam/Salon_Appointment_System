@@ -183,7 +183,7 @@
             <div class="modal-header">
               <h4 id="titleModal" class="modal-title" style="text-align: center">Edit Service</h4>
             </div>
-            <form action="/API/maintenance/editService" method="POST">
+            <form action="/API/maintenance/editService" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="box-body">
@@ -216,6 +216,13 @@
                                 <input type="number" min="0" class="form-control" name="inputServiceFeeEdit" id="inputServiceFeeEdit" placeholder="Enter Service Fee...">
                             </div>
                         </div><br><br>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Service Image</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" name="inputServiceImageEdit" id="inputServiceImageEdit">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -83,7 +83,8 @@ class ServiceController extends Controller
         $serviceDesc = $_POST['inputServiceDescEdit'];
         $serviceFee = $_POST['inputServiceFeeEdit'];
         $serviceType = $_POST['inputServiceTypeEdit'];
-        $this->service->editService( $serviceID, $serviceName, $serviceDesc, $serviceFee, $serviceType);
+        $serviceImage = ($_FILES["inputServiceImageEdit"]["name"]);
+        $this->service->editService( $serviceID, $serviceName, $serviceDesc, $serviceFee, $serviceType, $serviceImage);
         return redirect()->back();
     }
 

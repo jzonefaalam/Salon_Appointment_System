@@ -26,6 +26,7 @@ Route::get('/reservation', function () {
 
 Route::get('/home', 'UserController@getData')->name('home');
 Route::get('/reservation', 'ReservationController@getData')->name('reservation');
+Route::get('/report', 'ReservationController@getReports')->name('report');
 Route::prefix('maintenance')->group(function () {
     Route::get('/service', 'ServiceController@viewAll')->name('service');
     Route::get('/staff', 'StaffController@viewAll')->name('staff');

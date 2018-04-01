@@ -46,8 +46,8 @@ class StaffRepo {
             ->get();
     }
 
-    public function editStaff( $staffID, $staffFName, $staffLName, $staffMName, $staffDesc ,$staffBDate, $staffGender ) {
-        return DB::table('tbl_staff')
+    public function editStaff( $staffID, $staffFName, $staffLName, $staffMName, $staffDesc ,$staffBDate, $staffGender, $staffImage ) {
+        DB::table('tbl_staff')
             ->where('staff_id', $staffID)
             ->update([
                 'staff_firstname' => $staffFName,
@@ -56,8 +56,14 @@ class StaffRepo {
                 'staff_description' => $staffDesc,
                 'staff_gender' => $staffGender,
                 'staff_birthdate' => date("Y-m-d", strtotime($staffBDate)),
+                'staff_image' => $staffImage,
                 'status' => 1
-            ]);
+        ]);
+
+        $target_dir = "images\\";
+        $target_file = $target_dir . basename($_FILES["inputStaffImageEdit"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES["inputStaffImageEdit"]["tmp_name"], $target_file);
     }
 
 }

@@ -105,6 +105,10 @@
 @include('/pages/maintenance/staff/include_modals')
 @section('content-script')
     <script>
+
+        var today = new Date('1980-01-01');
+        var endDay = new Date(Date.now() - (12096e5*(24*18)));
+
         $(function () {
             $('#staff_tbl').DataTable({
               'paging'      : true,
@@ -116,11 +120,15 @@
             });
 
             $('#inputStaffBDate').datepicker({
-              autoclose: true
+                autoclose: true,
+                startDate: today,
+                endDate: endDay
             });
 
             $('#inputStaffBDateEdit').datepicker({
-              autoclose: true
+                autoclose: true,
+                startDate: today,
+                endDate: endDay
             });
         })
     </script>

@@ -89,13 +89,13 @@
     </div>
 </div>
 
-<div class="modal fade" tabindex="-1" role="dialog" id="edit-package-modal" style="width: 100%;">
+<div class="modal fade" tabindex="-1" role="dialog" id="edit-package-modal" style="width: 100%;" >
     <div class="modal-dialog" style="width: 50%;">
         <div class="modal-content">
             <div class="modal-header">
               <h4 id="titleModal" class="modal-title" style="text-align: center">Edit Package</h4>
             </div>
-            <form action="/API/maintenance/editPackage" method="POST">
+            <form action="/API/maintenance/editPackage" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-body" style="width: 100%;">
                     <div class="box-body">
@@ -131,6 +131,13 @@
 								</select>
 							</div>
                         </div><br><br>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Package Image</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" name="inputPackageImageEdit" id="inputPackageImageEdit">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

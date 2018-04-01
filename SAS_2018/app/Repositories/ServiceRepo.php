@@ -32,16 +32,18 @@ class ServiceRepo {
     }
 
     public function createService( $service_name, $service_desc, $service_type, $service_fee, $service_image ) {
-        return response()->json(
-            ServiceModel::insert([
-                'service_name' => $service_name,
-                'service_desc' => $service_desc,
-                'service_price' => $service_fee,
-                'servicetype_id' => $service_type,
-                'service_image' => $service_image,
-                'status' => 1
-            ])
-        );
+        ServiceModel::insert([
+            'service_name' => $service_name,
+            'service_desc' => $service_desc,
+            'service_price' => $service_fee,
+            'servicetype_id' => $service_type,
+            'service_image' => $service_image,
+            'status' => 1
+        ]);
+        $target_dir = "images\\";
+        $target_file = $target_dir . basename($_FILES["inputServiceImage"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES["inputServiceImage"]["tmp_name"], $target_file);
     }
 
     public function deleteService( $service_id ) {
@@ -82,15 +84,21 @@ class ServiceRepo {
             ->get();
     }
 
-    public function editService( $service_id, $service_name, $service_desc, $service_fee, $service_type) {
-        return DB::table('tbl_service')
+    public function editService( $service_id, $service_name, $service_desc, $service_fee, $service_type, $service_image) {
+        DB::table('tbl_service')
             ->where('service_id', $service_id)
             ->update([
                 'service_name' => $service_name,
                 'service_desc' => $service_desc,
                 'service_price' => $service_fee,
                 'servicetype_id' => $service_type,
+                'service_image' => $service_image
             ]);
+
+        $target_dir = "images\\";
+        $target_file = $target_dir . basename($_FILES["inputServiceImageEdit"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES["inputServiceImageEdit"]["tmp_name"], $target_file);
     }
 
 }

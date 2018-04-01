@@ -56,7 +56,8 @@ class PackageController extends Controller
         $packageDesc = $_POST['inputPackageDescEdit'];
         $packagePrice = $_POST['inputPackagePriceEdit'];
         $packageInclusion = $_POST['inputPackageInclusionEdit'];
-        $this->package->editPackage( $packageID, $packageName, $packageDesc, $packagePrice, $packageInclusion );
+        $packageImage = ($_FILES["inputPackageImageEdit"]["name"]);
+        $this->package->editPackage( $packageID, $packageName, $packageDesc, $packagePrice, $packageInclusion, $packageImage );
         return redirect()->back();
     }
 

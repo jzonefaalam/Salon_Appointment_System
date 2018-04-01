@@ -5,11 +5,30 @@ use DB;
 
 class ReservationRepo {
 
-    public function getAllAppointments( ) {
+    public function getTodayAppointments( ) {
         return DB::table('tbl_appointment')
             ->select('tbl_appointment.*', 'tbl_customers.*')
             ->leftJoin('tbl_customers', 'tbl_customers.customer_id', 'tbl_appointment.customer_id')
             ->where('tbl_appointment.status', 1)
+            ->where('tbl_appointment.appointment_date', date("Y-m-d"))
+            ->get();
+    }
+
+    public function getPendingAppointments( ) {
+        return DB::table('tbl_appointment')
+            ->select('tbl_appointment.*', 'tbl_customers.*')
+            ->leftJoin('tbl_customers', 'tbl_customers.customer_id', 'tbl_appointment.customer_id')
+            ->where('tbl_appointment.status', 1)
+            ->where('tbl_appointment.appointment_date', '>=', date("Y-m-d", strtotime("+1 day")))
+            ->get();
+    }
+
+    public function getFinishedAppointments( ) {
+        return DB::table('tbl_appointment')
+            ->select('tbl_appointment.*', 'tbl_customers.*')
+            ->leftJoin('tbl_customers', 'tbl_customers.customer_id', 'tbl_appointment.customer_id')
+            ->where('tbl_appointment.status', 1)
+            ->where('tbl_appointment.appointment_date', '<', date("Y-m-d"))
             ->get();
     }
 

@@ -56,7 +56,8 @@ class StaffController extends Controller
         $staffDesc = $_POST['inputStaffDescEdit'];
         $staffBDate = $_POST['inputStaffBDateEdit'];
         $staffGender = $_POST['inputStaffGenderEdit'];
-        $this->staff->editStaff( $staffID, $staffFName, $staffLName, $staffMName, $staffDesc ,$staffBDate, $staffGender );
+        $staffImage = ($_FILES["inputStaffImageEdit"]["name"]);
+        $this->staff->editStaff( $staffID, $staffFName, $staffLName, $staffMName, $staffDesc ,$staffBDate, $staffGender, $staffImage );
         return redirect()->back();
     }
 

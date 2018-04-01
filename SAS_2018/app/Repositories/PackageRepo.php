@@ -73,13 +73,14 @@ class PackageRepo {
             ->get();
     }
 
-    public function editPackage( $packageID, $packageName, $packageDesc, $packagePrice, $packageInclusion ) {
+    public function editPackage( $packageID, $packageName, $packageDesc, $packagePrice, $packageInclusion, $packageImage ) {
         DB::table('tbl_packages')
             ->where('package_id', $packageID)
             ->update([
                 'package_name' => $packageName,
                 'package_description' => $packageDesc,
                 'package_price' => $packagePrice,
+                'package_image' => $packageImage,
             ]);
 
         if( $packageInclusion != "null"){
@@ -102,6 +103,11 @@ class PackageRepo {
                     ]);
             }
         }
+
+        $target_dir = "images\\";
+        $target_file = $target_dir . basename($_FILES["inputPackageImageEdit"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES["inputPackageImageEdit"]["tmp_name"], $target_file);
     }
 
 }

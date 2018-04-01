@@ -110,7 +110,7 @@
             <div class="modal-header">
               <h4 id="titleModal" class="modal-title" style="text-align: center">Edit Staff</h4>
             </div>
-            <form action="/API/maintenance/editStaff" method="POST">
+            <form action="/API/maintenance/editStaff" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="box-body">
@@ -161,6 +161,13 @@
                                 <input type="text" class="form-control" name="inputStaffBDateEdit" id="inputStaffBDateEdit" placeholder="Enter Birth Date...">
                             </div>
                         </div><br><br>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Staff Image</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" name="inputStaffImageEdit" id="inputStaffImageEdit">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
