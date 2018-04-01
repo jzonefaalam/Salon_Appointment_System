@@ -181,11 +181,11 @@
                                                                         <p>{{ $app->customer_contactnumber}}</p>
                                                                         <p>{{ $app->customer_email}}</p>
                                                                         <p>{{ $app->appointment_date}}</p>
-                                                                        <p>{{ $app->appointment_time}}</p>ghfgh
+                                                                        <p>{{ $app->appointment_time}}</p>
                                                                         <p>{{ implode(", ", $appPackage) }}</p>
                                                                         <p>{{ implode(", ", $appService) }}</p>
                                                                         <p>{{ implode(", ", $appStaff) }}</p>
-                                                                    </div>uiu8
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
