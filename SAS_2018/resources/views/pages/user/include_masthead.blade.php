@@ -16,8 +16,6 @@
                         </div>
                         <div class="carousel-item" style="background-image: url('/images/carousel_6.jpg')">
                         </div>
-                        <div class="carousel-item" style="background-image: url('/images/carousel_7.jpg')">
-                        </div>
                     </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
