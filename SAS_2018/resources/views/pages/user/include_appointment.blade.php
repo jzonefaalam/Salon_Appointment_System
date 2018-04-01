@@ -1,10 +1,11 @@
 <section id="appointment">
-    <div class="container">
+    <div class="container" style="margin-top: -100px;">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Set an Appointment</h2>
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col-lg-12">
                 <form id="ismForm" onsubmit="return validateMyForm();" action="/API/setAppointment" method="POST">
@@ -22,7 +23,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="inputDate" name="inputDate" placeholder="Appointment Date">
+                                <input type="text" class="form-control" id="inputDate"  name="inputDate" placeholder="Appointment Date">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">

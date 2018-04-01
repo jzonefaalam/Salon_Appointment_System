@@ -18,11 +18,19 @@
 <script src="/USERTEMP/js/agency.min.js"></script>
 
 <script>
+    var fortnightAway = new Date(Date.now() + 12096e5);
+    var threeMonths = new Date(Date.now() + (12096e5*6));
     $('#inputDate').datepicker({
         format: 'yyyy-mm-dd',
+        startDate: fortnightAway,
+        endDate: threeMonths
     });
 
-    $('.timepicker').timepicker();
+    $('.timepicker').timepicker({
+        minTime: '11:45:00'
+        // startTime: new Date(0,0,0,8,0,0),
+        // endTime: new Date(0,0,0,21,0,0)
+    });
 
     $('.select2').select2();
 </script>

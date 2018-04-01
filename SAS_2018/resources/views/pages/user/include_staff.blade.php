@@ -1,5 +1,5 @@
 <section class="bg-light" id="staff">
-    <div class="container">
+    <div class="container" style="margin-top: -100px;">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
