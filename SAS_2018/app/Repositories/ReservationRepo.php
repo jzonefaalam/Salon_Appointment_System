@@ -20,6 +20,7 @@ class ReservationRepo {
             ->leftJoin('tbl_customers', 'tbl_customers.customer_id', 'tbl_appointment.customer_id')
             ->where('tbl_appointment.status', 1)
             ->where('tbl_appointment.appointment_date', '>=', date("Y-m-d", strtotime("+1 day")))
+            ->orderBy('tbl_appointment.appointment_date', 'asc')
             ->get();
     }
 
@@ -29,6 +30,17 @@ class ReservationRepo {
             ->leftJoin('tbl_customers', 'tbl_customers.customer_id', 'tbl_appointment.customer_id')
             ->where('tbl_appointment.status', 1)
             ->where('tbl_appointment.appointment_date', '<', date("Y-m-d"))
+            ->orderBy('tbl_appointment.appointment_date', 'desc')
+            ->get();
+    }
+
+    public function getReports( ) {
+        return DB::table('tbl_appointment')
+            ->select('tbl_appointment.*', 'tbl_customers.*')
+            ->leftJoin('tbl_customers', 'tbl_customers.customer_id', 'tbl_appointment.customer_id')
+            ->where('tbl_appointment.status', 1)
+            ->where('tbl_appointment.appointment_date', '<', date("Y-m-d"))
+            ->orderBy('tbl_appointment.appointment_id', 'asc')
             ->get();
     }
 

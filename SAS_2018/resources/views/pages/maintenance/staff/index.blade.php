@@ -29,8 +29,8 @@
                 </li>
             </ul>
         </li>
-        <li class="treeview">
-            <a href="#">
+        <li>
+            <a href="{{ route('report') }}">
                 <i class="fa fa-dashboard"></i> <span>Reports</span>
                 <span class="pull-right-container">
                 <i class="pull-right"></i>
@@ -43,9 +43,6 @@
     <h1>
         Staff
     </h1>
-    <ol class="breadcrumb">
-        <li class="active">Staff</li>
-    </ol>
 @endsection
 @section('content')
     <div class="box">
@@ -56,7 +53,7 @@
                         <a class="btn btn-sm btn-outline-dark" onclick="addNewStaff();">
                             <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; New
                         </a>
-                        <a class="btn btn-sm btn-outline-dark" href="#">
+                        <a class="btn btn-sm btn-outline-dark" href="{{ route('staff') }}">
                             <i class="fa fa-refresh" aria-hidden="true"></i>&nbsp; Refresh
                         </a>
                     </div>

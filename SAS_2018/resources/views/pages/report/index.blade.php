@@ -29,7 +29,7 @@
                 </li>
             </ul>
         </li>
-        <li class="treeview active">
+        <li class="active">
             <a href="{{ route('report') }}">
                 <i class="fa fa-dashboard"></i> <span>Reports</span>
                 <span class="pull-right-container">
@@ -43,9 +43,6 @@
     <h1>
         Reports
     </h1>
-    <ol class="breadcrumb">
-        <li class="active">Reports</li>
-    </ol>
 @endsection
 @section('content')
     <div class="box">
@@ -53,10 +50,10 @@
             <div class="card-header clearfix">
                 <div class="pull-right action-bar">
                     <div class="btn-group" role="group" aria-label="">
-                        <a class="btn btn-sm btn-outline-dark" onclick="addNewPackage();">
+                        <a class="btn btn-sm btn-outline-dark" onclick="printReport();">
                             <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Print
                         </a>
-                        <a class="btn btn-sm btn-outline-dark" href="#">
+                        <a class="btn btn-sm btn-outline-dark"href="{{ route('report') }}">
                             <i class="fa fa-refresh" aria-hidden="true"></i>&nbsp; Refresh
                         </a>
                     </div>
@@ -64,51 +61,55 @@
             </div>
         </div><br>
         <div class="box-body">
-            <table id="package_tbl" class="table table-bordered table-striped">
+            <table id="appointmentTbl" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Package Image</th>
-                    <th>Package ID</th>
-                    <th>Package Name</th>
-                    <th>Package Description</th>
-                    <th>Package Price</th>
-                    <th>Package Inclusion</th>
-                    <th>Status</th>
-                    <th width="50px;">Action</th>
+                    <th hidden>ID</th>
+                    <th>Customer Name</th>
+                    <th>Email Address</th>
+                    <th>Contact Number</th>
+                    <th>Time</th>
+                    <th>Date</th>
+                    <th>Package</th>
+                    <th>Service</th>
+                    <th>Staff</th>
+                    <th>Message</th>
                 </tr>
             </thead>
             <tbody>
-
-                @foreach($package as $packageData)
-                <tr>
-                    <td><img src="{{ asset('images/' . $packageData->package_image) }}"  style="width:150px;height:100px;" /></td>
-                    <td>{{ $packageData->package_id }}</td>
-                    <td>{{ $packageData->package_name }}</td>
-                    <td>{{ $packageData->package_description }}</td>
-                    <td>{{ $packageData->package_price }}</td>
+                @foreach($appointmentFinished as $app)
                     <?php
-                        $serviceInclusions = [];
-                        foreach ($inclusions as $inclusion) {
-                            if(($inclusion->package_id) == ($packageData->package_id)){
-                                foreach ($service as $serviceData) {
-                                    if(($serviceData->service_id)==($inclusion->service_id)){
-                                        array_push($serviceInclusions, $serviceData->service_name);
-                                    }
-                                }
+                        $appPackage = [];
+                        $appService = [];
+                        $appStaff = [];
+                        foreach ($package as $packages) {
+                            if($packages->appointment_id == $app->appointment_id){
+                                array_push($appPackage, $packages->package_name);
+                            }
+                        }
+                        foreach ($service as $services) {
+                            if($services->appointment_id == $app->appointment_id){
+                                array_push($appService, $services->service_name);
+                            }
+                        }
+                        foreach ($staff as $staffs) {
+                            if($staffs->appointment_id == $app->appointment_id){
+                                array_push($appStaff, ($staffs->staff_firstname . " " . $staffs->staff_lastname));
                             }
                         }
                     ?>
-                    <td>{{ implode(", ", $serviceInclusions) }}</td>
-                    <td>{{ $packageData->status }}</td>
-                    <td>
-                        <a class="btn" onclick="editPackage(this.name)" name="{{ $packageData->package_id }}">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a>
-                        <a class="btn" onclick="deletePackage(this.name)" name="{{ $packageData->package_id }}">
-                            <i class="fa fa-trash"></i>
-                        </a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td hidden>{{ $app->appointment_id }}</td>
+                        <td>{{ $app->customer_name }}</td>
+                        <td>{{ $app->customer_email }}</td>
+                        <td>{{ $app->customer_contactnumber }}</td>
+                        <td>{{ $app->appointment_time }}</td>
+                        <td>{{ $app->appointment_date }}</td>
+                        <td>{{ implode(", ", $appPackage) }}</td>
+                        <td>{{ implode(", ", $appService) }}</td>
+                        <td>{{ implode(", ", $appStaff) }}</td>
+                        <td>{{ $app->appointment_message }}</td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
@@ -119,50 +120,65 @@
 @section('content-script')
     <script>
         $(function () {
-            $('#package_tbl').DataTable({
+            $('#appointmentTbl').DataTable({
               'paging'      : true,
               'lengthChange': false,
-              'searching'   : true,
-              'ordering'    : true,
+              'searching'   : false,
+              'ordering'    : false,
               'info'        : true,
               'autoWidth'   : false
             });
 
-            $('.select2').select2();
         })
     </script>
     <script>
-        function addNewPackage(){
-            $('#new-package-modal').modal('show');
-        };
-
-        function deletePackage( id ){
-            document.getElementById("inputPackageID").value = id;
-            $('#delete-package-modal').modal('show');
-        };
-
-        function editPackage( id ){
+        function printReport(){
             $.ajax({
-				type: "GET",
-				url: '/API/maintenance/getSinglePackage',
-				data: {
-					'packageID' : id
-				},
-				success: function ( data ) {
-                    for( var i=0 ; i<data['packageData'].length; ++i ){
-                        document.getElementById("inputPackageIDEdit").value = data['packageData'][i]['package_id'];
-                        document.getElementById("inputPackageNameEdit").value = data['packageData'][i]['package_name'];
-                        document.getElementById("inputPackageDescEdit").value = data['packageData'][i]['package_description'];
-                        document.getElementById("inputPackagePriceEdit").value = data['packageData'][i]['package_price'];
-					}
-                    $('#edit-package-modal').modal('show');
-				},
-				error: function (xhr, desc, err) {
-					console.log(xhr);
-					console.log(desc);
-					console.log(err);
-					}
-				});
+                type: "GET",
+                url:  "/API/getReport",
+                success: function(data){
+                    var frame1 = $('<iframe />');
+                    frame1[0].name = "frame1";
+                    frame1.css({ "position": "absolute", "top": "-1000000px" });
+                    $("body").append(frame1);
+                    var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
+                    frameDoc.document.open();
+                    frameDoc.document.write('<html><body> <div >');
+                    frameDoc.document.write('<image src = "logo.png" align = "pullcenter" width = "130" height = "100" style ="padding-left:10px"­> ');
+                    frameDoc.document.write('<p align = "Center">Margareth Catering Services </br>');
+                    frameDoc.document.write('B4 L5 Ph7 JP Rizal St., New San Mateo Subd., Gitnangbayan I, San Mateo, Rizal </br>');
+                    frameDoc.document.write('696-4528 | (+63) 928-297-2321 | (+63) 907-208-3331 </br>');
+                    frameDoc.document.write('margarethcateringservices@gmail.com </p></br></br>');
+                    frameDoc.document.write('<p align="right" > </p>');
+                    frameDoc.document.write('<p align= "center" style ="font-weight:bold;font-size:16pt">Sales Report for the Month of </p>');
+                    frameDoc.document.write('<table border="1" style="width:100%;">');
+                    frameDoc.document.write('<tr>');
+                    frameDoc.document.write('<th> Appointment ID </th>');
+                    frameDoc.document.write('<th> Customer Name</th>') ;
+                    frameDoc.document.write('<th> Contact Number</th>');
+                    frameDoc.document.write('<th> Email Address </th>');
+                    frameDoc.document.write('</tr>');
+                    for (i = 0; i < data['appointmentFinished'].length; i++) {
+                        frameDoc.document.write('<tr style ="text-align:center">');
+                        frameDoc.document.write('<td>' +data['appointmentFinished'][i]['appointment_id']+ '</td>');
+                        frameDoc.document.write('<td>' +data['appointmentFinished'][i]['customer_name']+ '</td>');
+                        frameDoc.document.write('<td>' +data['appointmentFinished'][i]['customer_contactnumber']+ '</td>');
+                        frameDoc.document.write('<td>' +data['appointmentFinished'][i]['customer_email']+ '</td>');
+                        frameDoc.document.write('</tr>');
+                    }
+                    frameDoc.document.write('</table></br>')
+                    frameDoc.document.write('</html>')
+                    frameDoc.document.close();
+                    setTimeout(function () {
+                    window.frames["frame1"].focus();
+                    window.frames["frame1"].print();
+                    frame1.remove();
+                    }, 500);
+                },
+                error: function(xhr){
+                    alert($.parseJSON(xhr.responseText)['error']['message']);
+                }
+            });
         };
     </script>
 @endsection

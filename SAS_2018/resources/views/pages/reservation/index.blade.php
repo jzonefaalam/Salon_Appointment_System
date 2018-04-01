@@ -29,8 +29,8 @@
                 </li>
             </ul>
         </li>
-        <li class="treeview">
-            <a href="#">
+        <li class="">
+            <a href="{{ route('report') }}">
                 <i class="fa fa-dashboard"></i> <span>Reports</span>
                 <span class="pull-right-container">
                 <i class="pull-right"></i>
@@ -43,9 +43,6 @@
     <h1>
         Reservations
     </h1>
-    <ol class="breadcrumb">
-        <li class="active">Reservations</li>
-    </ol>
 @endsection
 @section('content')
     <div class="box">
@@ -78,7 +75,7 @@
                                                                         <div class="box-header with-border">
                                                                             <h4 class="box-title">
                                                                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $app->appointment_id }}">
-                                                                                    {{ $app->customer_name }}
+                                                                                    {{ $app->customer_name }} || {{ $app->appointment_date }}
                                                                                 </a>
                                                                             </h4>
                                                                         </div>
@@ -114,6 +111,7 @@
                                                                                         <p>Package(s) Availed: </p>
                                                                                         <p>Services Availed: </p>
                                                                                         <p>Staff Selected: </p>
+                                                                                        <p>Personal Message</p>
                                                                                     </div>
                                                                                     <div class="col-md-9">
                                                                                         <p>{{ $app->customer_name}}</p>
@@ -124,6 +122,7 @@
                                                                                         <p>{{ implode(", ", $appPackage) }}</p>
                                                                                         <p>{{ implode(", ", $appService) }}</p>
                                                                                         <p>{{ implode(", ", $appStaff) }}</p>
+                                                                                        <p>{{ $app->appointment_message}}</p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -158,7 +157,7 @@
                                                                         <div class="box-header with-border">
                                                                             <h4 class="box-title">
                                                                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $app->appointment_id }}">
-                                                                                    {{ $app->customer_name }}
+                                                                                    {{ $app->customer_name }} | {{ $app->appointment_date }}
                                                                                 </a>
                                                                             </h4>
                                                                         </div>
@@ -194,6 +193,7 @@
                                                                                         <p>Package(s) Availed: </p>
                                                                                         <p>Services Availed: </p>
                                                                                         <p>Staff Selected: </p>
+                                                                                        <p>Personal Message</p>
                                                                                     </div>
                                                                                     <div class="col-md-9">
                                                                                         <p>{{ $app->customer_name}}</p>
@@ -204,6 +204,7 @@
                                                                                         <p>{{ implode(", ", $appPackage) }}</p>
                                                                                         <p>{{ implode(", ", $appService) }}</p>
                                                                                         <p>{{ implode(", ", $appStaff) }}</p>
+                                                                                        <p>{{ $app->appointment_message}}</p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -238,7 +239,7 @@
                                                                         <div class="box-header with-border">
                                                                             <h4 class="box-title">
                                                                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $app->appointment_id }}">
-                                                                                    {{ $app->customer_name }}
+                                                                                    {{ $app->customer_name }} | {{ $app->appointment_date }}
                                                                                 </a>
                                                                             </h4>
                                                                         </div>
@@ -274,6 +275,7 @@
                                                                                         <p>Package(s) Availed: </p>
                                                                                         <p>Services Availed: </p>
                                                                                         <p>Staff Selected: </p>
+                                                                                        <p>Personal Message</p>
                                                                                     </div>
                                                                                     <div class="col-md-9">
                                                                                         <p>{{ $app->customer_name}}</p>
@@ -284,6 +286,7 @@
                                                                                         <p>{{ implode(", ", $appPackage) }}</p>
                                                                                         <p>{{ implode(", ", $appService) }}</p>
                                                                                         <p>{{ implode(", ", $appStaff) }}</p>
+                                                                                        <p>{{ $app->appointment_message}}</p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -313,7 +316,7 @@
               'paging'      : true,
               'lengthChange': false,
               'searching'   : false,
-              'ordering'    : true,
+              'ordering'    : false,
               'info'        : true,
               'autoWidth'   : false,
               "iDisplayLength": 5
@@ -323,7 +326,7 @@
               'paging'      : true,
               'lengthChange': false,
               'searching'   : false,
-              'ordering'    : true,
+              'ordering'    : false,
               'info'        : true,
               'autoWidth'   : false,
               "iDisplayLength": 5
@@ -333,7 +336,7 @@
               'paging'      : true,
               'lengthChange': false,
               'searching'   : false,
-              'ordering'    : true,
+              'ordering'    : false,
               'info'        : true,
               'autoWidth'   : false,
               "iDisplayLength": 5

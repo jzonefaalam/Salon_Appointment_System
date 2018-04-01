@@ -24,7 +24,6 @@ class ReservationController extends Controller
         $package = $this->reservation->getAvailedPackage();
         $service = $this->reservation->getAvailedServices();
         $staff = $this->reservation->getAvailedStaff();
-        // $inclusions = $this->package->getAllInclusions();
         return view('/pages/reservation/index')
             ->with('package', $package)
             ->with('service', $service)
@@ -35,16 +34,28 @@ class ReservationController extends Controller
     }
 
     public function getReports() {
-        $appointment = $this->reservation->getAllAppointments();
+        $appointmentFinished = $this->reservation->getFinishedAppointments();
         $package = $this->reservation->getAvailedPackage();
         $service = $this->reservation->getAvailedServices();
         $staff = $this->reservation->getAvailedStaff();
-        $inclusions = $this->package->getAllInclusions();
         return view('/pages/report/index')
             ->with('package', $package)
             ->with('service', $service)
             ->with('staff', $staff)
-            ->with('appointment', $appointment);
+            ->with('appointmentFinished', $appointmentFinished);
+    }
+
+    public function sendReport() {
+        $appointmentFinished = $this->reservation->getReports();
+        $package = $this->reservation->getAvailedPackage();
+        $service = $this->reservation->getAvailedServices();
+        $staff = $this->reservation->getAvailedStaff();
+        return \Response::json([
+            'package'=>$package,
+            'service'=>$service,
+            'staff'=>$staff,
+            'appointmentFinished'=>$appointmentFinished,
+        ]);
     }
 
 }

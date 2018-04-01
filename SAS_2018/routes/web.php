@@ -42,6 +42,7 @@ Route::prefix('maintenance')->group(function () {
 Route::prefix('API')->group(function () {
     Route::post('/authenticate', 'AuthController@login')->name('auth');
     Route::post('/setAppointment', 'UserController@setAppointment');
+    Route::get('/getReport', 'ReservationController@sendReport');
     Route::prefix('maintenance')->group(function () {
         //Service Functionalities
         Route::post('/addNewService', 'ServiceController@addNewService');
