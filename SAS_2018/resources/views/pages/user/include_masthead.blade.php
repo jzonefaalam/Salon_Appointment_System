@@ -3,20 +3,26 @@
         <div class="intro-text">
             <div class="container">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner" role="listbox" style="height: 450px; border-radius: 10px;">
-                        <div class="carousel-item active" style="background-image: url('/images/cr1.jpg')">
+                    <div class="carousel-inner" role="listbox" style="height: 500px; border-radius: 10px;">
+                        <div class="carousel-item active" style="background-image: url('/images/c1.jpg')">
                         </div>
-                        <div class="carousel-item" style="background-image: url('/images/carousel_2.jpg')">
+                        <div class="carousel-item" style="background-image: url('/images/c2.jpg')">
                         </div>
-                        <div class="carousel-item" style="background-image: url('/images/carousel_3.jpg')">
+                        <div class="carousel-item" style="background-image: url('/images/c3.jpg')">
                         </div>
-                        <div class="carousel-item" style="background-image: url('/images/carousel_4.jpg')">
+                        <div class="carousel-item" style="background-image: url('/images/c4.jpg')">
                         </div>
-                        <div class="carousel-item" style="background-image: url('/images/carousel_5.jpg')">
+                        <div class="carousel-item" style="background-image: url('/images/c5.jpg')">
                         </div>
-                        <div class="carousel-item" style="background-image: url('/images/carousel_6.jpg')">
+                        <div class="carousel-item" style="background-image: url('/images/c6.jpg')">
                         </div>
-                        <div class="carousel-item" style="background-image: url('/images/carousel_7.jpg')">
+                        <div class="carousel-item" style="background-image: url('/images/c7.jpg')">
+                        </div>
+						<div class="carousel-item" style="background-image: url('/images/c8.jpg')">
+                        </div>
+						<div class="carousel-item" style="background-image: url('/images/c9.jpg')">
+                        </div>
+						<div class="carousel-item" style="background-image: url('/images/c10.jpg')">
                         </div>
                     </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

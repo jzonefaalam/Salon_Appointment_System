@@ -46,11 +46,11 @@
                     </div>
                     <div class="timeline-panel">
                       <div class="timeline-heading">
-                        <h4>2009-2011</h4>
+                        <h4>2016</h4>
                         <h4 class="subheading">Our Humble Beginnings</h4>
                       </div>
                       <div class="timeline-body">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                        <p class="text-muted">It all started with a simple plan until a company of beauty blooms. Founded by three people; <b>Ghie Moya, Andy Natividad and Shyryl De Torre</b>, Ghie Moya Hair Station By Andy Natividad was born in the line of beauty world. The salon was erected in 24 Sgt. Bumatay St., Plainview, Mandaluyong City</p>
                       </div>
                     </div>
                   </li>
@@ -60,11 +60,11 @@
                     </div>
                     <div class="timeline-panel">
                       <div class="timeline-heading">
-                        <h4>March 2011</h4>
-                        <h4 class="subheading">An Agency is Born</h4>
+                        <h4></h4>
+                        <h4 class="subheading">Little by little</h4>
                       </div>
                       <div class="timeline-body">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                        <p class="text-muted">Ghie Moya Hair Station By Andy Natividad plainly started on 2016. The salon primarily engaged in the business of beauty. They are concentrated mainly on making a customer beautiful as to what they wanted. This includes the services they offer like Hair Cut, Hair Color, Cellophane, Hair Spa and everything related to hair and beauty.</p>
                       </div>
                     </div>
                   </li>
@@ -74,28 +74,15 @@
                     </div>
                     <div class="timeline-panel">
                       <div class="timeline-heading">
-                        <h4>December 2012</h4>
+                        <h4></h4>
                         <h4 class="subheading">Transition to Full Service</h4>
                       </div>
                       <div class="timeline-body">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                        <p class="text-muted">The numbers of employees working under Ghie Moya Hair Station are 7 people. This includes all the staffs; the manager and the stylists. Altogether, Ghie Moya Hair Station was able to surpass the entire unfavorable scenario they have encountered through the years and continuing to grow and mark their place in the beauty world.</p>
                       </div>
                     </div>
                   </li>
-                  <li class="timeline-inverted">
-                    <div class="timeline-image">
-                      <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
-                    </div>
-                    <div class="timeline-panel">
-                      <div class="timeline-heading">
-                        <h4>July 2014</h4>
-                        <h4 class="subheading">Phase Two Expansion</h4>
-                      </div>
-                      <div class="timeline-body">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                      </div>
-                    </div>
-                  </li>
+                  
                   <li class="timeline-inverted">
                     <div class="timeline-image">
                       <h4>Be Part

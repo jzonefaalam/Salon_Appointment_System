@@ -3,7 +3,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Agency - Start Bootstrap Theme</title>
+<title>Ghie Moya Hair Station</title>
 
 <!-- Bootstrap core CSS -->
 <link href="/USERTEMP/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
