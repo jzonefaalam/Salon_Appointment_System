@@ -36,33 +36,16 @@ class UserController extends Controller
         $appCustomerNum = $_POST['inputContactNum'];
         $appCustomerEmail = $_POST['inputEmail'];
         $appServices = $_POST['inputServices'];
-        $appPackages = $_POST['inputPackages'];
+        if( isset($_POST['inputPackages']) )
+        { 
+            $appPackages = $_POST['inputPackages'];
+        }
+        else{
+            $appPackages = 0;
+        }
         $appStaff = $_POST['inputStaff'];
         $appMessage = $_POST['inputMessage'];
         $this->user->createAppointment( $appCustomerName, $appTime, $appDate, $appCustomerNum, $appCustomerEmail, $appServices, $appPackages, $appStaff, $appMessage );
         return redirect()->back();
     }
-    //
-    // public function deletePackage() {
-    //     $packageID = $_POST['inputPackageID'];
-    //     $this->package->deletePackage( $packageID );
-    //     return redirect()->back();
-    // }
-    //
-    // public function getSinglePackage(Request $req) {
-    //     $packageID = $req->only('packageID');
-    //     $packageData = $this->package->getSinglePackage( $packageID );
-    //     return \Response::json(['packageData'=>$packageData]);
-    // }
-    //
-    // public function editPackage() {
-    //     $packageID = $_POST['inputPackageIDEdit'];
-    //     $packageName = $_POST['inputPackageNameEdit'];
-    //     $packageDesc = $_POST['inputPackageDescEdit'];
-    //     $packagePrice = $_POST['inputPackagePriceEdit'];
-    //     $packageInclusion = $_POST['inputPackageInclusionEdit'];
-    //     $this->package->editPackage( $packageID, $packageName, $packageDesc, $packagePrice, $packageInclusion );
-    //     return redirect()->back();
-    // }
-
 }

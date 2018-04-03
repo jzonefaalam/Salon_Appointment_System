@@ -105,7 +105,15 @@
                         <td>{{ $app->customer_contactnumber }}</td>
                         <td>{{ $app->appointment_time }}</td>
                         <td>{{ $app->appointment_date }}</td>
-                        <td>{{ implode(", ", $appPackage) }}</td>
+                        <td> <?php
+                            if(empty($appPackage)){
+                                echo "No Package Selected";
+                            }
+                            else{
+                                echo implode(",", $appPackage);
+                            }
+                                                                    ?>
+                        </td>
                         <td>{{ implode(", ", $appService) }}</td>
                         <td>{{ implode(", ", $appStaff) }}</td>
                         <td>{{ $app->appointment_message }}</td>

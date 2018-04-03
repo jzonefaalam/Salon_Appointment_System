@@ -27,7 +27,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <select name="inputPackages[]" required style="width: 100%;" data-placeholder="Select Package(s)" id="inputPackages[]" class="form-control select2" multiple="multiple">
+                                <select name="inputPackages[]" style="width: 100%;" data-placeholder="Select Package(s)" id="inputPackages[]" class="form-control select2" multiple="multiple">
 		                            @foreach($package as $packageData)
                                         <option value="{{ $packageData->package_id }}">{{ $packageData->package_name }}</option>
                                     @endforeach

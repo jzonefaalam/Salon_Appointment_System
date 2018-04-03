@@ -119,7 +119,16 @@
                                                                                         <p>{{ $app->customer_email}}</p>
                                                                                         <p>{{ $app->appointment_date}}</p>
                                                                                         <p>{{ $app->appointment_time}}</p>
-                                                                                        <p>{{ implode(", ", $appPackage) }}</p>
+                                                                                        <p>
+                                                                                            <?php
+                                                                                                if(empty($appPackage)){
+                                                                                                    echo "No Package Selected";
+                                                                                                }
+                                                                                                else{
+                                                                                                    echo implode(",", $appPackage);
+                                                                                                }
+                                                                                            ?>
+                                                                                        </p>
                                                                                         <p>{{ implode(", ", $appService) }}</p>
                                                                                         <p>{{ implode(", ", $appStaff) }}</p>
                                                                                         <p>{{ $app->appointment_message}}</p>
@@ -201,7 +210,16 @@
                                                                                         <p>{{ $app->customer_email}}</p>
                                                                                         <p>{{ $app->appointment_date}}</p>
                                                                                         <p>{{ $app->appointment_time}}</p>
-                                                                                        <p>{{ implode(", ", $appPackage) }}</p>
+                                                                                        <p>
+                                                                                            <?php
+                                                                                                if(empty($appPackage)){
+                                                                                                    echo "No Package Selected";
+                                                                                                }
+                                                                                                else{
+                                                                                                    echo implode(",", $appPackage);
+                                                                                                }
+                                                                                            ?>
+                                                                                        </p>
                                                                                         <p>{{ implode(", ", $appService) }}</p>
                                                                                         <p>{{ implode(", ", $appStaff) }}</p>
                                                                                         <p>{{ $app->appointment_message}}</p>
@@ -283,7 +301,16 @@
                                                                                         <p>{{ $app->customer_email}}</p>
                                                                                         <p>{{ $app->appointment_date}}</p>
                                                                                         <p>{{ $app->appointment_time}}</p>
-                                                                                        <p>{{ implode(", ", $appPackage) }}</p>
+                                                                                        <p>
+                                                                                            <?php
+                                                                                                if(empty($appPackage)){
+                                                                                                    echo "No Package Selected";
+                                                                                                }
+                                                                                                else{
+                                                                                                    echo implode(",", $appPackage);
+                                                                                                }
+                                                                                            ?>
+                                                                                        </p>
                                                                                         <p>{{ implode(", ", $appService) }}</p>
                                                                                         <p>{{ implode(", ", $appStaff) }}</p>
                                                                                         <p>{{ $app->appointment_message}}</p>
