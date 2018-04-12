@@ -152,16 +152,16 @@
                     var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
                     frameDoc.document.open();
                     frameDoc.document.write('<html><body> <div >');
-                    frameDoc.document.write('<image src = "logo.png" align = "pullcenter" width = "130" height = "100" style ="padding-left:10px"­> ');
-                    frameDoc.document.write('<p align = "Center">Margareth Catering Services </br>');
-                    frameDoc.document.write('B4 L5 Ph7 JP Rizal St., New San Mateo Subd., Gitnangbayan I, San Mateo, Rizal </br>');
+                    frameDoc.document.write('<p align = "Center">Ghie Moya Hair Station</br>');
+                    frameDoc.document.write('24 Sgt. Bumatay St., Plainview, Mandaluyong City</br>');
                     frameDoc.document.write('696-4528 | (+63) 928-297-2321 | (+63) 907-208-3331 </br>');
-                    frameDoc.document.write('margarethcateringservices@gmail.com </p></br></br>');
+                    frameDoc.document.write('ghiemoyahairstation@gmail.com </p></br></br>');
                     frameDoc.document.write('<p align="right" > </p>');
-                    frameDoc.document.write('<p align= "center" style ="font-weight:bold;font-size:16pt">Sales Report for the Month of </p>');
+                    frameDoc.document.write('<p align= "center" style ="font-weight:bold;font-size:16pt">List of Appointments</p>');
                     frameDoc.document.write('<table border="1" style="width:100%;">');
                     frameDoc.document.write('<tr>');
                     frameDoc.document.write('<th> Appointment ID </th>');
+                    frameDoc.document.write('<th> Appointment Date </th>');
                     frameDoc.document.write('<th> Customer Name</th>') ;
                     frameDoc.document.write('<th> Contact Number</th>');
                     frameDoc.document.write('<th> Email Address </th>');
@@ -169,6 +169,7 @@
                     for (i = 0; i < data['appointmentFinished'].length; i++) {
                         frameDoc.document.write('<tr style ="text-align:center">');
                         frameDoc.document.write('<td>' +data['appointmentFinished'][i]['appointment_id']+ '</td>');
+                        frameDoc.document.write('<td>' +data['appointmentFinished'][i]['appointment_date']+ '</td>');
                         frameDoc.document.write('<td>' +data['appointmentFinished'][i]['customer_name']+ '</td>');
                         frameDoc.document.write('<td>' +data['appointmentFinished'][i]['customer_contactnumber']+ '</td>');
                         frameDoc.document.write('<td>' +data['appointmentFinished'][i]['customer_email']+ '</td>');
