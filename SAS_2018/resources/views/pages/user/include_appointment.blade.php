@@ -98,3 +98,19 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="no-staffpackage-modal" style="width: 100%;">
+    <div class="modal-dialog" style="width: 50%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="titleModal" class="modal-title" style="text-align: center">Info</h4>
+            </div>
+            <div class="modal-body">
+                <p>Please choose a package or a service.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary text-uppercase" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

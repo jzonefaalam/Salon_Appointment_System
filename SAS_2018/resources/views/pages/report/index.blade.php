@@ -94,7 +94,7 @@
                         }
                         foreach ($staff as $staffs) {
                             if($staffs->appointment_id == $app->appointment_id){
-                                array_push($appStaff, ($staffs->staff_firstname . " " . $staffs->staff_lastname));
+                                array_push($appStaff, $staffs->staff_firstname);
                             }
                         }
                     ?>
@@ -105,17 +105,36 @@
                         <td>{{ $app->customer_contactnumber }}</td>
                         <td>{{ $app->appointment_time }}</td>
                         <td>{{ $app->appointment_date }}</td>
-                        <td> <?php
-                            if(empty($appPackage)){
-                                echo "No Package Selected";
+                        <td>
+                            <?php
+                                if(empty($appPackage)){
+                                    echo "No Package Selected";
+                                }
+                                else{
+                                    echo implode(",", $appPackage);
+                                }
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                                if(empty($appService)){
+                                    echo "No Service Selected";
+                                }
+                                else{
+                                    echo implode(",", $appService);
+                                }
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            if(empty($appStaff)){
+                                echo "No Staff Selected";
                             }
                             else{
-                                echo implode(",", $appPackage);
+                                echo implode(",", $appStaff);
                             }
-                                                                    ?>
+                            ?>
                         </td>
-                        <td>{{ implode(", ", $appService) }}</td>
-                        <td>{{ implode(", ", $appStaff) }}</td>
                         <td>{{ $app->appointment_message }}</td>
                     </tr>
                 @endforeach

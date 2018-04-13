@@ -81,7 +81,7 @@
         var xx = $("#inputServices").val();
         var xxy = xx.toString();
         if (xy.length == 0 && xxy.length == 0){
-            alert('Please Choose a package or a service.');
+            $('#no-staffpackage-modal').modal('show');
             return false;
         }
         else{
