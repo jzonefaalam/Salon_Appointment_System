@@ -35,13 +35,20 @@ class UserController extends Controller
         $appDate = $_POST['inputDate'];
         $appCustomerNum = $_POST['inputContactNum'];
         $appCustomerEmail = $_POST['inputEmail'];
-        $appServices = $_POST['inputServices'];
         if( isset($_POST['inputPackages']) )
-        { 
+        {
             $appPackages = $_POST['inputPackages'];
         }
         else{
             $appPackages = 0;
+        }
+
+        if( isset($_POST['inputServices']) )
+        {
+            $appServices = $_POST['inputServices'];
+        }
+        else{
+            $appServices = 0;
         }
         $appStaff = $_POST['inputStaff'];
         $appMessage = $_POST['inputMessage'];

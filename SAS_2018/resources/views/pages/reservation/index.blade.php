@@ -129,7 +129,16 @@
                                                                                                 }
                                                                                             ?>
                                                                                         </p>
-                                                                                        <p>{{ implode(", ", $appService) }}</p>
+                                                                                        <p>
+                                                                                            <?php
+                                                                                                if(empty($appService)){
+                                                                                                    echo "No Service Selected";
+                                                                                                }
+                                                                                                else{
+                                                                                                    echo implode(", ", $appService);
+                                                                                                }
+                                                                                            ?>
+                                                                                        </p>
                                                                                         <p>{{ implode(", ", $appStaff) }}</p>
                                                                                         <p>{{ $app->appointment_message}}</p>
                                                                                     </div>
@@ -220,7 +229,16 @@
                                                                                                 }
                                                                                             ?>
                                                                                         </p>
-                                                                                        <p>{{ implode(", ", $appService) }}</p>
+                                                                                        <p>
+                                                                                            <?php
+                                                                                                if(empty($appService)){
+                                                                                                    echo "No Service Selected";
+                                                                                                }
+                                                                                                else{
+                                                                                                    echo implode(", ", $appService);
+                                                                                                }
+                                                                                            ?>
+                                                                                        </p>
                                                                                         <p>{{ implode(", ", $appStaff) }}</p>
                                                                                         <p>{{ $app->appointment_message}}</p>
                                                                                     </div>
@@ -311,7 +329,16 @@
                                                                                                 }
                                                                                             ?>
                                                                                         </p>
-                                                                                        <p>{{ implode(", ", $appService) }}</p>
+                                                                                        <p>
+                                                                                            <?php
+                                                                                                if(empty($appService)){
+                                                                                                    echo "No Service Selected";
+                                                                                                }
+                                                                                                else{
+                                                                                                    echo implode(", ", $appService);
+                                                                                                }
+                                                                                            ?>
+                                                                                        </p>
                                                                                         <p>{{ implode(", ", $appStaff) }}</p>
                                                                                         <p>{{ $app->appointment_message}}</p>
                                                                                     </div>

@@ -36,6 +36,7 @@
 </script>
 
 <script>
+
     function validateMyForm(){
         var aTime = document.getElementById('inputTimeDisplay').value;
         var array1 = aTime.split("");
@@ -75,8 +76,18 @@
             }
         }
         document.getElementById('inputTime').value = newTime;
-        $('#new-package-modal').modal('show');
-        return false;
+        var x = $("#inputPackages").val();
+        var xy = x.toString();
+        var xx = $("#inputServices").val();
+        var xxy = xx.toString();
+        if (xy.length == 0 && xxy.length == 0){
+            alert('Please Choose a package or a service.');
+            return false;
+        }
+        else{
+            $('#new-package-modal').modal('show');
+            return false;
+        }
     }
 
     function superSubmit(){

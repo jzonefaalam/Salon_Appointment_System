@@ -27,7 +27,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <select name="inputPackages[]" style="width: 100%;" data-placeholder="Select Package(s)" id="inputPackages[]" class="form-control select2" multiple="multiple">
+                                <select name="inputPackages[]" style="width: 100%;" data-placeholder="Select Package(s)" id="inputPackages" class="form-control select2" multiple="multiple">
 		                            @foreach($package as $packageData)
                                         <option value="{{ $packageData->package_id }}">{{ $packageData->package_name }}</option>
                                     @endforeach
@@ -45,7 +45,7 @@
                                 <input type="text" class="form-control timepicker" id="inputTimeDisplay" name="inputTimeDisplay" placeholder="Appointment Time">
                             </div>
                             <div class="form-group">
-                                <select name="inputServices[]" required style="width: 100%;" data-placeholder="Select Service(s)" id="inputServices[]" class="form-control select2" multiple="multiple">
+                                <select name="inputServices[]" style="width: 100%;" data-placeholder="Select Service(s)" id="inputServices" class="form-control select2" multiple="multiple">
 		                            @foreach($service as $serviceData)
                                         <option value="{{ $serviceData->service_id }}">{{ $serviceData->service_name }}</option>
                                     @endforeach
